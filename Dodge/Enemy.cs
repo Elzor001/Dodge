@@ -35,6 +35,7 @@ namespace Dodge
 			
 			test = 0;
 			testC = false;
+
 			
 		}
 		public void Update()

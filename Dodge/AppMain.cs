@@ -14,11 +14,10 @@ namespace Dodge
 {
 	public class AppMain
 	{
-		private static Sce.PlayStation.HighLevel.GameEngine2D.Scene gameScene;
-
+		//private static Sce.PlayStation.HighLevel.GameEngine2D.Scene gameScene;
 		
-		private static SpriteUV background;
-		private static TextureInfo textureInfo;
+		//private static SpriteUV background;
+		//private static TextureInfo textureInfo;
 		private static Enemy enemy;
 		
 		public static void Main (string[] args)
@@ -28,7 +27,7 @@ namespace Dodge
 			while (true) {
 				SystemEvents.CheckEvents ();
 				Update ();
-				Render ();
+				Draw ();
 				
 
 			}
@@ -42,17 +41,19 @@ namespace Dodge
 			
 			Director.Initialize();
 			
-			gameScene = new Sce.PlayStation.HighLevel.GameEngine2D.Scene();
-			gameScene.Camera.SetViewFromViewport();
+			//gameScene = new Sce.PlayStation.HighLevel.GameEngine2D.Scene();
+			//gameScene = SceneManager.Instance.startScene(gameScene);
+//			gameScene.Camera.SetViewFromViewport();
+//			
+//			textureInfo = new TextureInfo("/Application/Assets/background.png");
+//			background = new SpriteUV(textureInfo);
+//			background.Quad.S = textureInfo.TextureSizef;
+//			gameScene.AddChild(background);
 			
-			textureInfo = new TextureInfo("/Application/Assets/background.png");
-			background = new SpriteUV(textureInfo);
-			background.Quad.S = textureInfo.TextureSizef;
-			gameScene.AddChild(background);
-			enemy = new Enemy(gameScene);
-
+			//enemy = new Enemy(gameScene);
+			SceneManager.Instance.startScene();
 			
-			Director.Instance.RunWithScene(gameScene, true);
+			//Director.Instance.RunWithScene(gameScene, true);
 			
 		}
 
@@ -61,15 +62,15 @@ namespace Dodge
 			// Query gamepad for current state
 			var gamePadData = GamePad.GetData (0);
 			
-			enemy.Update();
+			//enemy.Update();
 			
 			Director.Instance.Update();
 		}
 
-		public static void Render ()
+		public static void Draw ()
 		{
 
-			enemy.Draw();
+			//enemy.Draw();
 			Director.Instance.Render();
 			Director.Instance.GL.Context.SwapBuffers();
 			Director.Instance.PostSwap();
