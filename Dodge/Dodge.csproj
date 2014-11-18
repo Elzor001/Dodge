@@ -55,10 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Background.png" />
-    <Content Include="Assets\Flying_Fish.png" />
-    <Content Include="Assets\images.png" />
     <Content Include="Assets\Flying_Fish2.png" />
-    <Content Include="Assets\rabbit.png" />
-    <Content Include="Assets\fish.png" />
+    <Content Include="Assets\gameBackground.png" />
+    <Content Include="Assets\startBackground.png" />
   </ItemGroup>
 </Project>

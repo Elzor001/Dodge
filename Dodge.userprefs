@@ -1,9 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Dodge\AppMain.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Dodge\SceneManager.cs">
     <Files>
-      <File FileName="Dodge\AppMain.cs" Line="17" Column="73" />
-      <File FileName="Dodge\Enemy.cs" Line="45" Column="30" />
+      <File FileName="Dodge\AppMain.cs" Line="56" Column="6" />
+      <File FileName="Dodge\SceneManager.cs" Line="44" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
