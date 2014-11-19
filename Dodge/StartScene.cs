@@ -28,6 +28,7 @@ namespace Dodge
 			if(touches.Count > 0)
 				SceneManager.Instance.setInGameScene();
 			Director.Instance.Update();
+			
 		}
 		public override void Draw(float dT)
 		{

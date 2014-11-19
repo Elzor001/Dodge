@@ -24,6 +24,7 @@ namespace Dodge
 		public static void Main (string[] args)
 		{
 			Director.Initialize();
+			stopwatch.Start();
 			float startSeconds = 0.0f;
 			float endSeconds = 0.016f;
 			float lastSeconds;

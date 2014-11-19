@@ -44,6 +44,8 @@
     <Compile Include="GameScene.cs" />
     <Compile Include="StartScene.cs" />
     <Compile Include="InGameScene.cs" />
+    <Compile Include="Tank.cs" />
+    <Compile Include="Spawner.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
@@ -61,5 +63,6 @@
     <Content Include="Assets\Flying_Fish2.png" />
     <Content Include="Assets\gameBackground.png" />
     <Content Include="Assets\startBackground.png" />
+    <Content Include="Assets\E-100_preview.png" />
   </ItemGroup>
 </Project>
