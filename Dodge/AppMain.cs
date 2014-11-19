@@ -38,32 +38,6 @@ namespace Dodge
 			Director.Terminate();
 		}
 
-		public static void Initialize ()
-		{
 
-			Director.Initialize();
-
-			
-		}
-
-		public static void Update ()
-		{
-			// Query gamepad for current state
-			var gamePadData = GamePad.GetData (0);
-			
-			//enemy.Update();
-			
-			//Director.Instance.Update();
-		}
-
-		public static void Draw ()
-		{
-
-			//enemy.Draw();
-			Director.Instance.Render();
-			Director.Instance.GL.Context.SwapBuffers();
-			Director.Instance.PostSwap();
-			
-		}
 	}
 }
