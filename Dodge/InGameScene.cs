@@ -17,7 +17,7 @@ namespace Dodge
 	{
 		private Tank tank;
 		private Spawner tankSpawner;
-		private ArrayList tankList;
+		private Tank[] tankList;
 		private Stopwatch gameTimer;
 			
 		public InGameScene ()
@@ -30,10 +30,13 @@ namespace Dodge
 			background.Quad.S = textureInfo.TextureSizef;
 			scene.AddChild(background);
 			
-			tank = new Tank(scene);
-			tankSpawner = new Spawner(tank);
-			tankList = new ArrayList();
-			tankList.Add (tank);
+			//tank = new Tank(scene);
+			//tankSpawner = new Spawner(tank);
+			tankList = new Tank[5];
+			for (int i = 0; i < 5; i++) 
+			{
+				tankList[i] = new Tank(scene);
+			}
 
 			gameTimer = new Stopwatch();
 			gameTimer.Start ();
@@ -42,9 +45,9 @@ namespace Dodge
 		public override void Update(float dT)
 		{
 			//tank.Update(dT);
-			foreach(Enemy i in tankList)
+			foreach(Tank tank in tankList)
 			{
-				i.Update(dT);
+				tank.Update(dT);
 			}
 			Director.Instance.Update();
 		}
@@ -56,7 +59,7 @@ namespace Dodge
 		}
 		public void addEnemy()
 		{
-			tankList.Add(tankSpawner.SpawnEnemy());
+			//tankList.Add(tankSpawner.SpawnEnemy());
 		}
 	}
 }

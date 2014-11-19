@@ -14,7 +14,7 @@ namespace Dodge
 	{
 		private static SceneManager instance = new SceneManager();
 		private static GameScene currentScene;
-		
+		public Random rand = new Random();
 		// Singleton initialization 
 		private SceneManager()
 		{

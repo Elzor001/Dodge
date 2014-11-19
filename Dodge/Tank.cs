@@ -8,7 +8,8 @@ namespace Dodge
 {
 	public class Tank : Enemy
 	{
-
+		private Random rand = new Random();
+		private bool leftRight;
 		public Tank (Scene scene)
 		{
 			
@@ -23,24 +24,44 @@ namespace Dodge
 			sprite.TileIndex2D = tiles; // sets which tile you are viewing
 			scene.AddChild(sprite);
 			
-			speed = 800.0f;
+			speed = (float)SceneManager.Instance.rand.NextDouble()* 800.0f;
 			position = new Vector2(0.0f, 100.0f);
+			setRandom();
 			//sprite.CenterSprite();
-			sprite.Rotate((float)System.Math.PI);
 			
+			
+			if(SceneManager.Instance.rand.NextDouble() > 0.5)
+			{
+				leftRight = true;
+				sprite.Rotate((float)System.Math.PI);
+			}
+			else
+				leftRight = false;
+
 
 		}
 		public override Enemy Clone() { return new Tank(scene);}
 		
 		public override void Update(float dT)
 		{
-			if(sprite.Position.X - sprite.Quad.Bounds2().Point10.X > Director.Instance.GL.Context.GetViewport().Width)
+			if(leftRight)
 			{
-				setRandom();
+				if(sprite.Position.X - sprite.Quad.Bounds2().Point10.X > Director.Instance.GL.Context.GetViewport().Width)
+				{
+					setRandom();
+				}
+				else
+					position.X +=speed*dT;
 			}
 			else
-				position.X +=speed*dT;
-			
+			{
+				if(sprite.Position.X + sprite.Quad.Bounds2().Point10.X < 0)
+				{
+					setRandom();
+				}
+				else
+					position.X -=speed*dT;
+			}
 			sprite.Position = position;
 			
 		}
@@ -49,10 +70,19 @@ namespace Dodge
 		}
 		public void setRandom()
 		{
-			Random rand = new Random();
-			position = new Vector2(0,(float)rand.NextDouble()* Director.Instance.GL.Context.GetViewport().Height);
-			if(position.Y - sprite.Quad.Bounds2().Point01.Y < 0)
-				position.Y = sprite.Quad.Bounds2().Point01.Y;
+			if(leftRight)
+			{
+				position = new Vector2(0, (float)SceneManager.Instance.rand.NextDouble()* Director.Instance.GL.Context.GetViewport().Height);
+				if(position.Y - sprite.Quad.Bounds2().Point01.Y < 0)
+					position.Y = sprite.Quad.Bounds2().Point01.Y;
+			}
+			else
+			{
+				position = new Vector2(Director.Instance.GL.Context.GetViewport().Width, (float)SceneManager.Instance.rand.NextDouble()* Director.Instance.GL.Context.GetViewport().Height);
+				if(position.Y - sprite.Quad.Bounds2().Point01.Y < 0)
+					position.Y = sprite.Quad.Bounds2().Point01.Y;
+			}
+			speed = (float)SceneManager.Instance.rand.Next(500,800);
 
 		}
 	}
