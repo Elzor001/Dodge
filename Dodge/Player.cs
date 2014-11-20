@@ -18,6 +18,7 @@ namespace Dodge
 		private static Vector2 position;
 		private Bounds2 boxBound;
 		private static TouchStatus currentTouchStatus, previousTouchData;
+		private static int screenHeight, screenWidth;
 	
 		private bool Alive;
 		
@@ -33,9 +34,12 @@ namespace Dodge
 			sprite	 		= new SpriteUV();
 			sprite 			= new SpriteUV(textureInfo);	
 			sprite.Quad.S 	= textureInfo.TextureSizef;
-			sprite.Position = new Vector2(0.0f,0.0f);
-			
+			sprite.Position = new Vector2(500.0f,300.0f);
+			position = new Vector2(500.0f, 300.0f);
 			scene.AddChild(sprite);
+			
+			screenHeight = Director.Instance.GL.Context.GetViewport().Height;
+			screenWidth = Director.Instance.GL.Context.GetViewport().Width;
 			
 		}
 		
@@ -47,63 +51,55 @@ namespace Dodge
 		}
 		
 		public void Update()
-		{
-			TouchData touches = Touch.GetData(0);
-			
-				currentTouchStatus = touches.Status;
-				float xPos = (touches.X +0.5f) * Director.Instance.GL.Context.GetViewport().Width;
-				float yPos = (touches.Y +0.5f) * Director.Instance.GL.Context.GetViewport().Height;
+		{		
+		
+			List<TouchData> touches = Touch.GetData(0);
+			foreach(TouchData data in touches)
+			{
+				currentTouchStatus = data.Status;
 				
-				if(touches.Status == TouchStatus.Down)
+				float xPos = (data.X +0.5f) * screenWidth;
+				float yPos = screenHeight -((data.Y +0.5f) * screenHeight);
+				
+				if(data.Status == TouchStatus.Move)
 				{
-					
-					
+//					Console.WriteLine("x : " +  xPos);
+//					Console.WriteLine("y : " +  yPos);
 					position = new Vector2(xPos, yPos);
-					
-					
-					
-					
-					
+	
 				}
-				
-				
-			
-		
-//		List<TouchData> touches = Touch.GetData(0);
-//			foreach(TouchData data in touches)
-//			{
-//				currentTouchStatus = data.Status;
-//				float xPos = (data.X +0.5f) * Director.Instance.GL.Context.GetViewport().Width;
-//				float yPos = (data.Y +0.5f) * Director.Instance.GL.Context.GetViewport().Height;
-//				
-//				if(data.Status == TouchStatus.Down)
-//				{
-//					
-//					
-//					position = new Vector2(xPos, yPos);
-//					
-//					
-//					
-//					
-//					
-//				}
-//				
-//				
-//			}
+			}
+			previousTouchData = currentTouchStatus;
 			sprite.Position = position;
-		
-				
-				
-			
-			
+			sprite.CenterSprite();
+
 		}
 		
-		public bool Collision()
+		public bool Collision(Vector2 ePos, Vector2 eSize)
 		{
 			//if(boxBound.Overlaps (/*Enemy bounds*/))
-			   return true;
-			   
-			   return false;
+//			Bounds2 playerB = sprite.Quad.Bounds2();
+//			Console.WriteLine(playerB);
+//			Console.WriteLine(bounds);
+//			if(playerB.Overlaps(bounds))
+//			   return true;
+//			else  
+//			   return false;
+			Console.WriteLine(ePos.X);
+			//Console.WriteLine(eSize);
+			Bounds2 box = sprite.Quad.Bounds2();
+			float width = box.Point11.X;
+			float height = box.Point11.Y;
+			if((position.X + width) < ePos.X)
+				return false;
+			else if(position.X - width > (ePos.X + eSize.X))
+				return false;
+			else if((position.Y + height) < ePos.Y)
+				return false;
+			else if(position.Y - height > (ePos.Y + eSize.Y))
+				return false;
+			else 
+				return true;
 			
 		}
 	}

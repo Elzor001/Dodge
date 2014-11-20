@@ -12,10 +12,21 @@ namespace Dodge
 		private bool leftRight;
 		public Tank (Scene scene)
 		{
-			Console.WriteLine("Init tank");
+			if(SceneManager.Instance.rand.NextDouble() > 0.5)
+			{
+				leftRight = true;
+				texture2D = new Texture2D("/Application/Assets/E-100_preview2.png", false);
+
+			}
+			else
+			{
+				leftRight = false;
+				texture2D = new Texture2D("/Application/Assets/E-100_preview.png", false);
+			}
+			
 			numTiles = new Vector2i(1,1); // tiles in the sprite sheet
 			tiles = new Vector2i(0,0); // tile you are displaying
-			texture2D = new Texture2D("/Application/Assets/E-100_preview.png", false);
+			
 			textureInfo = new TextureInfo(texture2D, numTiles);
 
 			sprite = new SpriteTile(textureInfo);
@@ -23,21 +34,12 @@ namespace Dodge
 			sprite.Quad.S = textureInfo.TextureSizef;
 			sprite.TileIndex2D = tiles; // sets which tile you are viewing
 			scene.AddChild(sprite);
+				
 			
 			speed = (float)SceneManager.Instance.rand.NextDouble()* 800.0f;
-			position = new Vector2(0.0f, 100.0f);
-			setRandom();
-			//sprite.CenterSprite();
-			
-			
-			if(SceneManager.Instance.rand.NextDouble() > 0.5)
-			{
-				leftRight = true;
-				sprite.Rotate((float)System.Math.PI);
-			}
-			else
-				leftRight = false;
+			position = new Vector2(-100.0f, -100.0f);
 
+			setRandom();
 
 		}
 		public override Enemy Clone() { return new Tank(scene);}
@@ -68,21 +70,31 @@ namespace Dodge
 		public override void Draw(float dT)
 		{
 		}
+		public Vector2 getPosition()
+		{
+			//Bounds2 b = sprite.Quad.Bounds2();
+			return sprite.Position;
+		}
+		public Vector2 getSize()
+		{
+			Vector2 size = new Vector2(sprite.Quad.Bounds2().Point11.X, sprite.Quad.Bounds2().Point11.Y);
+			return size;
+		}
 		public void setRandom()
 		{
 			if(leftRight)
 			{
 				position = new Vector2(0, (float)SceneManager.Instance.rand.NextDouble()* Director.Instance.GL.Context.GetViewport().Height);
 				if(position.Y - sprite.Quad.Bounds2().Point01.Y < 0)
-					position.Y = sprite.Quad.Bounds2().Point01.Y;
+					position.Y = 0;
 			}
 			else
 			{
 				position = new Vector2(Director.Instance.GL.Context.GetViewport().Width, (float)SceneManager.Instance.rand.NextDouble()* Director.Instance.GL.Context.GetViewport().Height);
 				if(position.Y - sprite.Quad.Bounds2().Point01.Y < 0)
-					position.Y = sprite.Quad.Bounds2().Point01.Y;
+					position.Y = 0;
 			}
-			speed = (float)SceneManager.Instance.rand.Next(500,800);
+			speed = (float)SceneManager.Instance.rand.Next(100,200);
 
 		}
 	}

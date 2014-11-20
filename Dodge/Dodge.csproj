@@ -66,5 +66,6 @@
     <Content Include="Assets\startBackground.png" />
     <Content Include="Assets\E-100_preview.png" />
     <Content Include="Assets\Box.png" />
+    <Content Include="Assets\E-100_preview2.png" />
   </ItemGroup>
 </Project>

@@ -51,6 +51,7 @@ namespace Dodge
 			foreach(Tank tank in tankList)
 			{
 				tank.Update(dT);
+				Console.WriteLine(player.Collision(tank.getPosition(), tank.getSize()));
 			}
 			player.Update();
 			Director.Instance.Update();
