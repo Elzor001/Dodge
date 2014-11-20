@@ -1,6 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Dodge\Tank.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\..\Program Files (x86)\MSBuild\Sce\Sce.Psm.CSharp.targets">
     <Files>
       <File FileName="Dodge\AppMain.cs" Line="9" Column="1" />
       <File FileName="Dodge\SceneManager.cs" Line="16" Column="41" />
@@ -9,6 +9,7 @@
       <File FileName="Dodge\StartScene.cs" Line="28" Column="20" />
       <File FileName="Dodge\InGameScene.cs" Line="13" Column="3" />
       <File FileName="Dodge\Tank.cs" Line="11" Column="3" />
+      <File FileName="..\..\..\..\..\Program Files (x86)\MSBuild\Sce\Sce.Psm.CSharp.targets" Line="22" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
