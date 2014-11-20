@@ -12,7 +12,7 @@ namespace Dodge
 		private bool leftRight;
 		public Tank (Scene scene)
 		{
-			
+			Console.WriteLine("Init tank");
 			numTiles = new Vector2i(1,1); // tiles in the sprite sheet
 			tiles = new Vector2i(0,0); // tile you are displaying
 			texture2D = new Texture2D("/Application/Assets/E-100_preview.png", false);
