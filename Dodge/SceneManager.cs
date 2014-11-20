@@ -31,7 +31,6 @@ namespace Dodge
 		{
 			currentScene.Update(dT);
 			currentScene.Draw(dT);
-
 		}	
 		public void setStartScene()
 		{
