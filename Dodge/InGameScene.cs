@@ -19,6 +19,7 @@ namespace Dodge
 		private Spawner tankSpawner;
 		private Tank[] tankList;
 		private Stopwatch gameTimer;
+		private Player player;
 			
 		public InGameScene ()
 		{
@@ -37,6 +38,8 @@ namespace Dodge
 			{
 				tankList[i] = new Tank(scene);
 			}
+			
+			player = new Player(scene);
 
 			gameTimer = new Stopwatch();
 			gameTimer.Start ();
@@ -49,6 +52,7 @@ namespace Dodge
 			{
 				tank.Update(dT);
 			}
+			player.Update();
 			Director.Instance.Update();
 		}
 		public override void Draw(float dT)

@@ -152,3 +152,5 @@ E:\GroupGame\Dodge\Dodge\obj\Debug\shaders\shaders\Simple.cgx
 E:\GroupGame\Dodge\Dodge\obj\Debug\convertedpdb\app.exe.mdb
 E:\GroupGame\Dodge\Dodge\obj\Debug\app.exe
 E:\GroupGame\Dodge\Dodge\obj\Debug\app.pdb
+E:\GroupGame\Dodge\Dodge\bin\Debug\Dodge-unsigned\Application\Assets\Box.png
+E:\GroupGame\Dodge\Dodge\bin\Debug\Dodge-signed\Application\Assets\Box.png
