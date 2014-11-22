@@ -195,3 +195,9 @@ C:\Users\Peter\Documents\GitHub\Dodge\Dodge\obj\Debug\convertedpdb\app.exe.mdb
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\obj\Debug\app.pdb
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-unsigned\Application\Assets\E-100_preview2.png
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-signed\Application\Assets\E-100_preview2.png
+C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-unsigned\Application\Assets\E-100_strip2.png
+C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-signed\Application\Assets\E-100_strip2.png
+C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-unsigned\Application\Assets\E-100_stripBlack.png
+C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-signed\Application\Assets\E-100_stripBlack.png
+C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-unsigned\Application\Sce.PlayStation.HighLevel.UI.dll
+C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-signed\Application\Sce.PlayStation.HighLevel.UI.dll

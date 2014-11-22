@@ -12,17 +12,9 @@ namespace Dodge
 		private bool leftRight;
 		public Tank (Scene scene)
 		{
-			if(SceneManager.Instance.rand.NextDouble() > 0.5)
-			{
-				leftRight = true;
-				texture2D = new Texture2D("/Application/Assets/E-100_preview2.png", false);
-
-			}
-			else
-			{
-				leftRight = false;
-				texture2D = new Texture2D("/Application/Assets/E-100_preview.png", false);
-			}
+			
+			texture2D = new Texture2D("/Application/Assets/E-100_preview.png", false);
+			//texture2D = new Texture2D("/Application/Assets/E-100_stripBlack.png", false);
 			
 			numTiles = new Vector2i(1,1); // tiles in the sprite sheet
 			tiles = new Vector2i(0,0); // tile you are displaying
@@ -31,15 +23,26 @@ namespace Dodge
 
 			sprite = new SpriteTile(textureInfo);
 
-			sprite.Quad.S = textureInfo.TextureSizef;
+			sprite.Quad.S = new Vector2(textureInfo.TextureSizef.X, textureInfo.TextureSizef.Y);
 			sprite.TileIndex2D = tiles; // sets which tile you are viewing
 			scene.AddChild(sprite);
 				
 			
 			speed = (float)SceneManager.Instance.rand.NextDouble()* 800.0f;
 			position = new Vector2(-100.0f, -100.0f);
-
+			
+			if(SceneManager.Instance.rand.NextDouble() > 0.5)
+			{
+				leftRight = true;
+				sprite.Rotate((float)System.Math.PI);
+			}
+			else
+			{
+				leftRight = false;
+			}
+			
 			setRandom();
+			sprite.CenterSprite();
 
 		}
 		public override Enemy Clone() { return new Tank(scene);}
