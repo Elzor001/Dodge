@@ -48,6 +48,7 @@
     <Compile Include="Spawner.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="ScoreManager.cs" />
+    <Compile Include="EndGameScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
@@ -70,5 +71,6 @@
     <Content Include="Assets\E-100_preview2.png" />
     <Content Include="Assets\E-100_strip2.png" />
     <Content Include="Assets\E-100_stripBlack.png" />
+    <Content Include="Assets\endBackground.png" />
   </ItemGroup>
 </Project>

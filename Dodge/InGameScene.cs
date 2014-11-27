@@ -24,6 +24,7 @@ namespace Dodge
 		private Sce.PlayStation.HighLevel.UI.Scene uiScene;
 		private Sce.PlayStation.HighLevel.UI.Label uiScore;
 		private Sce.PlayStation.HighLevel.UI.Label uiTime;
+		private bool alive;
 			
 		public InGameScene ()
 		{
@@ -50,6 +51,7 @@ namespace Dodge
 			gameTimer.Start ();
 			
 			ScoreManager.Instance.startTime();
+			alive = true;
 		}
 		private void InitializeUI()
 		{
@@ -87,12 +89,17 @@ namespace Dodge
 			foreach(Tank tank in tankList)
 			{
 				tank.Update(dT);
+				if(player.isTouching() && player.Collision(tank.getPosition(), tank.getSize()))
+				   alive = false;
 				//Console.WriteLine(player.Collision(tank.getPosition(), tank.getSize()));
 			}
 			player.Update();
 			if(player.isTouching())
 				ScoreManager.Instance.runScore();
 			Director.Instance.Update();
+			
+			if(!alive)
+				SceneManager.Instance.setEndScene();
 			
 		}
 		public override void Draw(float dT)

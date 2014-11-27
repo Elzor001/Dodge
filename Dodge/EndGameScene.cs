@@ -10,26 +10,30 @@ using Sce.PlayStation.HighLevel.GameEngine2D.Base;
 
 namespace Dodge
 {
-	public class StartScene : GameScene
+	public class EndGameScene : GameScene
 	{
-		public StartScene ()
+		private float timer;
+		public EndGameScene ()
 		{
 			scene = new Sce.PlayStation.HighLevel.GameEngine2D.Scene();
 			scene.Camera.SetViewFromViewport();
 			
-			textureInfo = new TextureInfo("/Application/Assets/startBackground.png");
+			textureInfo = new TextureInfo("/Application/Assets/endBackground.png");
 			background = new SpriteUV(textureInfo);
 			background.Quad.S = textureInfo.TextureSizef;
 			scene.AddChild(background);
+			timer = 0.0f;
 		}
 		public override void Update(float dT)
 		{
-			var touches = Touch.GetData(0);
-			Console.WriteLine(touches.Count);
-			if(touches.Count > 0)
-				SceneManager.Instance.setInGameScene();
+			Touch.GetData(0).Clear();
+			timer += dT;
+			if(timer >= 2.0f)
+			{
+				SceneManager.Instance.setStartScene();
+			}
 			Director.Instance.Update();
-			
+
 		}
 		public override void Draw(float dT)
 		{
