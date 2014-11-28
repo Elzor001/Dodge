@@ -30,7 +30,7 @@ namespace Dodge
 		public Player (Scene scene)
 		{
 			
-			textureInfo  = new TextureInfo("/Application/Assets/Box.png");
+			textureInfo  = new TextureInfo("/Application/Assets/Box2.png");
 			
 			sprite	 		= new SpriteUV();
 			sprite 			= new SpriteUV(textureInfo);	
@@ -101,6 +101,10 @@ namespace Dodge
 			else 
 				return true;
 			
+		}
+		public Vector2 Position()
+		{
+			return position;
 		}
 	}
 }

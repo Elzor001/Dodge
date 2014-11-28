@@ -19,12 +19,12 @@ namespace Dodge
 		private Tank tank;
 		private Spawner tankSpawner;
 		private Tank[] tankList;
-		private Stopwatch gameTimer;
 		private Player player;
 		private Sce.PlayStation.HighLevel.UI.Scene uiScene;
 		private Sce.PlayStation.HighLevel.UI.Label uiScore;
 		private Sce.PlayStation.HighLevel.UI.Label uiTime;
 		private bool alive;
+		private int numTanks;
 			
 		public InGameScene ()
 		{
@@ -37,18 +37,16 @@ namespace Dodge
 			background = new SpriteUV(textureInfo);
 			background.Quad.S = textureInfo.TextureSizef;
 			scene.AddChild(background);
-			
+			numTanks = 5;
 			//tank = new Tank(scene);
 			//tankSpawner = new Spawner(tank);
-			tankList = new Tank[5];
-			for (int i = 0; i < 5; i++) 
+			tankList = new Tank[numTanks];
+			for (int i = 0; i < numTanks; i++) 
 			{
 				tankList[i] = new Tank(scene);
 			}
 			
 			player = new Player(scene);
-			gameTimer = new Stopwatch();
-			gameTimer.Start ();
 			
 			ScoreManager.Instance.startTime();
 			alive = true;
@@ -89,17 +87,24 @@ namespace Dodge
 			foreach(Tank tank in tankList)
 			{
 				tank.Update(dT);
+				tank.rotateTurret(player.Position(), dT);
 				if(player.isTouching() && player.Collision(tank.getPosition(), tank.getSize()))
 				   alive = false;
-				//Console.WriteLine(player.Collision(tank.getPosition(), tank.getSize()));
+
 			}
 			player.Update();
 			if(player.isTouching())
 				ScoreManager.Instance.runScore();
-			Director.Instance.Update();
+			
 			
 			if(!alive)
+			{
+				ScoreManager.Instance.setScore();
+				ScoreManager.Instance.reset();
 				SceneManager.Instance.setEndScene();
+			}
+			
+			Director.Instance.Update();
 			
 		}
 		public override void Draw(float dT)

@@ -25,7 +25,6 @@ namespace Dodge
 		public override void Update(float dT)
 		{
 			var touches = Touch.GetData(0);
-			Console.WriteLine(touches.Count);
 			if(touches.Count > 0)
 				SceneManager.Instance.setInGameScene();
 			Director.Instance.Update();
