@@ -21,8 +21,16 @@ namespace Dodge
 		}
 		public Scene getScene(){return scene;}
 		
-		public virtual void Update(float dT){}
-		public virtual void Draw(float dT){}
+		public virtual void Update(float dT)
+		{
+			Director.Instance.Update();
+		}
+		public virtual void Draw(float dT)
+		{
+			Director.Instance.Render();
+			Director.Instance.GL.Context.SwapBuffers();
+			Director.Instance.PostSwap();
+		}
 	}
 }
 

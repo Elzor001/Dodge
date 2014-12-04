@@ -19,6 +19,7 @@ namespace Dodge
 		private Bounds2 boxBound;
 		private static TouchStatus currentTouchStatus, previousTouchData;
 		private static int screenHeight, screenWidth;
+		private bool touching;
 	
 		private bool Alive;
 		
@@ -29,7 +30,7 @@ namespace Dodge
 		public Player (Scene scene)
 		{
 			
-			textureInfo  = new TextureInfo("/Application/Assets/Box.png");
+			textureInfo  = new TextureInfo("/Application/Assets/Box2.png");
 			
 			sprite	 		= new SpriteUV();
 			sprite 			= new SpriteUV(textureInfo);	
@@ -40,7 +41,7 @@ namespace Dodge
 			
 			screenHeight = Director.Instance.GL.Context.GetViewport().Height;
 			screenWidth = Director.Instance.GL.Context.GetViewport().Width;
-			
+			touching = false;
 		}
 		
 		
@@ -56,7 +57,7 @@ namespace Dodge
 			List<TouchData> touches = Touch.GetData(0);
 			foreach(TouchData data in touches)
 			{
-				currentTouchStatus = data.Status;
+				currentTouchStatus = data.Status; // never gets used
 				
 				float xPos = (data.X +0.5f) * screenWidth;
 				float yPos = screenHeight -((data.Y +0.5f) * screenHeight);
@@ -66,41 +67,44 @@ namespace Dodge
 //					Console.WriteLine("x : " +  xPos);
 //					Console.WriteLine("y : " +  yPos);
 					position = new Vector2(xPos, yPos);
+					touching = true;
 	
 				}
+				else
+					touching = false;
 			}
-			previousTouchData = currentTouchStatus;
+			previousTouchData = currentTouchStatus; // never gets used
 			sprite.Position = position;
 			sprite.CenterSprite();
 
 		}
-		
+		public bool isTouching()
+		{
+			return touching;
+		}
 		public bool Collision(Vector2 ePos, Vector2 eSize)
 		{
-			//if(boxBound.Overlaps (/*Enemy bounds*/))
-//			Bounds2 playerB = sprite.Quad.Bounds2();
-//			Console.WriteLine(playerB);
-//			Console.WriteLine(bounds);
-//			if(playerB.Overlaps(bounds))
-//			   return true;
-//			else  
-//			   return false;
-			Console.WriteLine(ePos.X);
+
+			//Console.WriteLine(ePos.X);
 			//Console.WriteLine(eSize);
 			Bounds2 box = sprite.Quad.Bounds2();
 			float width = box.Point11.X;
 			float height = box.Point11.Y;
-			if((position.X + width) < ePos.X)
+			if((position.X + width) < ePos.X - eSize.X)
 				return false;
 			else if(position.X - width > (ePos.X + eSize.X))
 				return false;
-			else if((position.Y + height) < ePos.Y)
+			else if((position.Y + height) < ePos.Y - eSize.Y)
 				return false;
 			else if(position.Y - height > (ePos.Y + eSize.Y))
 				return false;
 			else 
 				return true;
 			
+		}
+		public Vector2 Position()
+		{
+			return position;
 		}
 	}
 }

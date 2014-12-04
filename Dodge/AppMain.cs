@@ -19,11 +19,12 @@ namespace Dodge
 		static Stopwatch stopwatch = new Stopwatch();
 		//private static SpriteUV background;
 		//private static TextureInfo textureInfo;
-		private static Enemy enemy;
 		
 		public static void Main (string[] args)
 		{
 			Director.Initialize();
+			UISystem.Initialize(Director.Instance.GL.Context);
+			
 			stopwatch.Start();
 			float startSeconds = 0.0f;
 			float endSeconds = 0.016f;
@@ -38,7 +39,6 @@ namespace Dodge
 			}
 			Director.Terminate();
 		}
-
 
 	}
 }
