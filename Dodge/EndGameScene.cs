@@ -31,6 +31,7 @@ namespace Dodge
 			scoreTxt.Position = new Vector2(Director.Instance.GL.Context.GetViewport().Width/2 - 150, Director.Instance.GL.Context.GetViewport().Height*0.1f);
 			scoreTxt.Color = new Vector4(0.0f, 1.0f, 0.0f, 1.0f);
 			
+			
 			scene.AddChild(scoreTxt);
 			
 			ScoreManager.Instance.reset();

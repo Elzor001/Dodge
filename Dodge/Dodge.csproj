@@ -50,6 +50,7 @@
     <Compile Include="ScoreManager.cs" />
     <Compile Include="EndGameScene.cs" />
     <Compile Include="HighscoreScene.cs" />
+    <Compile Include="SplashScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
@@ -64,14 +65,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\gameBackground.png" />
-    <Content Include="Assets\startBackground.png" />
     <Content Include="Assets\Box.png" />
-    <Content Include="Assets\endBackground.png" />
     <Content Include="Assets\tankTurret.png" />
     <Content Include="Assets\tankBase.png" />
     <Content Include="Assets\tankBase2.png" />
     <Content Include="Assets\tankTurret2.png" />
     <Content Include="Assets\Box2.png" />
-    <Content Include="Assets\Background.png" />
+    <Content Include="Assets\tankBase3.png" />
+    <Content Include="Assets\tankTurret3.png" />
+    <Content Include="Assets\playBtn.png" />
+    <Content Include="Assets\ScoreScrn.png" />
+    <Content Include="Assets\stone.png" />
+    <Content Include="Assets\stone2.png" />
+    <Content Include="Assets\Highscore.png" />
+    <Content Include="Assets\MenuStart.png" />
+    <Content Include="Assets\Splashscreen1.png" />
+    <Content Include="Assets\splat.png" />
+    <Content Include="Assets\splattxt.png" />
+    <Content Include="Assets\endBackground.png" />
   </ItemGroup>
 </Project>

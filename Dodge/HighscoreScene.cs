@@ -24,7 +24,7 @@ namespace Dodge
 			scene = new Sce.PlayStation.HighLevel.GameEngine2D.Scene();
 			scene.Camera.SetViewFromViewport();
 			
-			textureInfo = new TextureInfo("/Application/Assets/Background.png");
+			textureInfo = new TextureInfo("/Application/Assets/Highscore.png");
 			background = new SpriteUV(textureInfo);
 			background.Quad.S = textureInfo.TextureSizef;
 			scene.AddChild(background);
@@ -99,28 +99,33 @@ namespace Dodge
 			uiScore2.HorizontalAlignment = HorizontalAlignment.Center;
 			uiScore2.VerticalAlignment = VerticalAlignment.Top;
 			uiScore2.SetPosition(Director.Instance.GL.Context.GetViewport().Width/2 - uiScore1.Width/2, Director.Instance.GL.Context.GetViewport().Height*0.4f);		
-			uiScore2.TextColor = new UIColor(1.0f, 0.0f, 0.0f, 1.0f);
+			uiScore2.TextColor = new UIColor(1.0f, 0.756f, 0.145f, 1.0f);
+			uiScore2.Font = new UIFont(FontAlias.System, 25, FontStyle.Bold);
 			
 			uiScore3 = new Sce.PlayStation.HighLevel.UI.Label();
 			uiScore3.Text = "3rd Score: 0";
 			uiScore3.HorizontalAlignment = HorizontalAlignment.Center;
 			uiScore3.VerticalAlignment = VerticalAlignment.Top;
 			uiScore3.SetPosition(Director.Instance.GL.Context.GetViewport().Width/2 - uiScore1.Width/2, Director.Instance.GL.Context.GetViewport().Height*0.5f);		
-			uiScore3.TextColor = new UIColor(1.0f, 0.0f, 0.0f, 1.0f);
+			uiScore3.TextColor = new UIColor(1.0f, 0.756f, 0.145f, 1.0f);
+			uiScore3.Font = new UIFont(FontAlias.System, 25, FontStyle.Bold);
 			
 			uiScore4 = new Sce.PlayStation.HighLevel.UI.Label();
 			uiScore4.Text = "4th Score: 0";
 			uiScore4.HorizontalAlignment = HorizontalAlignment.Center;
 			uiScore4.VerticalAlignment = VerticalAlignment.Top;
 			uiScore4.SetPosition(Director.Instance.GL.Context.GetViewport().Width/2 - uiScore1.Width/2, Director.Instance.GL.Context.GetViewport().Height*0.6f);		
-			uiScore4.TextColor = new UIColor(1.0f, 0.0f, 0.0f, 1.0f);
+			uiScore4.TextColor = new UIColor(1.0f, 0.756f, 0.145f, 1.0f);
+			uiScore4.Font = new UIFont(FontAlias.System, 25, FontStyle.Bold);
+			
 			
 			uiScore5 = new Sce.PlayStation.HighLevel.UI.Label();
 			uiScore5.Text = "5th Score: 0";
 			uiScore5.HorizontalAlignment = HorizontalAlignment.Center;
 			uiScore5.VerticalAlignment = VerticalAlignment.Top;
 			uiScore5.SetPosition(Director.Instance.GL.Context.GetViewport().Width/2 - uiScore1.Width/2, Director.Instance.GL.Context.GetViewport().Height*0.7f);		
-			uiScore5.TextColor = new UIColor(1.0f, 0.0f, 0.0f, 1.0f);
+			uiScore5.TextColor = new UIColor(1.0f, 0.756f, 0.145f, 1.0f);
+			uiScore5.Font = new UIFont(FontAlias.System, 25, FontStyle.Bold);
 		}
 		
 	}

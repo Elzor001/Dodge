@@ -14,7 +14,7 @@ namespace Dodge
 	{
 		
 		private SpriteUV btn1, btn2;
-		private TextureInfo boxtex;
+		private TextureInfo boxtex1, boxtex2;
 		private int screenWidth, screenHeight;
 		
 		public StartScene ()
@@ -22,20 +22,21 @@ namespace Dodge
 			scene = new Sce.PlayStation.HighLevel.GameEngine2D.Scene();
 			scene.Camera.SetViewFromViewport();
 			
-			textureInfo = new TextureInfo("/Application/Assets/startBackground.png");
+			textureInfo = new TextureInfo("/Application/Assets/MenuStart.png");
 			background = new SpriteUV(textureInfo);
 			background.Quad.S = textureInfo.TextureSizef;
 			scene.AddChild(background);
 			
-			boxtex = new TextureInfo("/Application/Assets/box2.png");
+			boxtex1 = new TextureInfo("/Application/Assets/playBtn.png");
+			boxtex2 = new TextureInfo("/Application/Assets/Scorescrn.png");
 			
-			btn1 = new SpriteUV(boxtex);
-			btn1.Quad.S = new Vector2(boxtex.TextureSizef.X * 4.4f, boxtex.TextureSizef.Y*2.7f);
-			btn1.Position = new Vector2(205,140);
+			btn1 = new SpriteUV(boxtex1);
+			btn1.Quad.S = new Vector2(boxtex1.TextureSizef.X, boxtex1.TextureSizef.Y);
+			btn1.Position = new Vector2(150,110);
 			
-			btn2 = new SpriteUV(boxtex);
-			btn2.Quad.S = new Vector2(boxtex.TextureSizef.X * 4.4f, boxtex.TextureSizef.Y*2.7f);
-			btn2.Position = new Vector2(515,145);
+			btn2 = new SpriteUV(boxtex2);
+			btn2.Quad.S = new Vector2(boxtex2.TextureSizef.X, boxtex2.TextureSizef.Y);
+			btn2.Position = new Vector2(500,110);
 			scene.AddChild(btn1);
 			scene.AddChild(btn2);
 			

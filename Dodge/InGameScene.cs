@@ -7,7 +7,7 @@ using Sce.PlayStation.Core;
 using Sce.PlayStation.Core.Environment;
 using Sce.PlayStation.Core.Graphics;
 using Sce.PlayStation.Core.Input;
-
+using Sce.PlayStation.Core.Imaging;
 using Sce.PlayStation.HighLevel.GameEngine2D;
 using Sce.PlayStation.HighLevel.GameEngine2D.Base;
 using Sce.PlayStation.HighLevel.UI;
@@ -33,7 +33,7 @@ namespace Dodge
 			scene = new Sce.PlayStation.HighLevel.GameEngine2D.Scene();
 			scene.Camera.SetViewFromViewport();
 			
-			textureInfo = new TextureInfo("/Application/Assets/gameBackground.png");
+			textureInfo = new TextureInfo("/Application/Assets/stone2.png");
 			background = new SpriteUV(textureInfo);
 			background.Quad.S = textureInfo.TextureSizef;
 			scene.AddChild(background);
@@ -65,6 +65,7 @@ namespace Dodge
 			uiScore.VerticalAlignment = VerticalAlignment.Top;
 			uiScore.SetPosition(Director.Instance.GL.Context.GetViewport().Width - uiScore.Width, Director.Instance.GL.Context.GetViewport().Height*.01f);		
 			uiScore.TextColor = new UIColor(1.0f, 0.0f, 0.0f, 1.0f);
+			uiScore.Font = new UIFont(FontAlias.System, 25, FontStyle.Bold);
 			
 			uiTime = new Sce.PlayStation.HighLevel.UI.Label();
 			uiTime.Text = "Time: ";
@@ -72,6 +73,7 @@ namespace Dodge
 			uiTime.VerticalAlignment = VerticalAlignment.Top;
 			uiTime.SetPosition(0.0f, Director.Instance.GL.Context.GetViewport().Height*.01f);		
 			uiTime.TextColor = new UIColor(1.0f, 1.0f, 0.0f, 1.0f);
+			uiTime.Font = new UIFont(FontAlias.System, 25, FontStyle.Bold);
 			
 			panel.AddChildLast(uiScore);
 			panel.AddChildLast(uiTime);
