@@ -43,7 +43,16 @@ namespace Dodge
 			currentScene = new InGameScene();
 			Director.Instance.ReplaceScene(currentScene.getScene());
 		}
-	
+		public void setEndScene()
+		{
+			currentScene = new EndGameScene();
+			Director.Instance.ReplaceScene(currentScene.getScene());
+		}
+		public void setHighscoreScene()
+		{
+			currentScene = new HighscoreScene();
+			Director.Instance.ReplaceScene(currentScene.getScene());
+		}
 
 	}
 }

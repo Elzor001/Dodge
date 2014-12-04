@@ -47,6 +47,9 @@
     <Compile Include="Tank.cs" />
     <Compile Include="Spawner.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="ScoreManager.cs" />
+    <Compile Include="EndGameScene.cs" />
+    <Compile Include="HighscoreScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
@@ -60,12 +63,15 @@
     <Folder Include="Assets\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Background.png" />
-    <Content Include="Assets\Flying_Fish2.png" />
     <Content Include="Assets\gameBackground.png" />
     <Content Include="Assets\startBackground.png" />
-    <Content Include="Assets\E-100_preview.png" />
     <Content Include="Assets\Box.png" />
-    <Content Include="Assets\E-100_preview2.png" />
+    <Content Include="Assets\endBackground.png" />
+    <Content Include="Assets\tankTurret.png" />
+    <Content Include="Assets\tankBase.png" />
+    <Content Include="Assets\tankBase2.png" />
+    <Content Include="Assets\tankTurret2.png" />
+    <Content Include="Assets\Box2.png" />
+    <Content Include="Assets\Background.png" />
   </ItemGroup>
 </Project>
