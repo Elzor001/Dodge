@@ -49,6 +49,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="ScoreManager.cs" />
     <Compile Include="EndGameScene.cs" />
+    <Compile Include="HighscoreScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
@@ -71,5 +72,6 @@
     <Content Include="Assets\tankBase2.png" />
     <Content Include="Assets\tankTurret2.png" />
     <Content Include="Assets\Box2.png" />
+    <Content Include="Assets\Background.png" />
   </ItemGroup>
 </Project>

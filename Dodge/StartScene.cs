@@ -13,7 +13,7 @@ namespace Dodge
 	public class StartScene : GameScene
 	{
 		
-		private SpriteUV box;
+		private SpriteUV btn1, btn2;
 		private TextureInfo boxtex;
 		private int screenWidth, screenHeight;
 		
@@ -29,10 +29,15 @@ namespace Dodge
 			
 			boxtex = new TextureInfo("/Application/Assets/box2.png");
 			
-			box = new SpriteUV(boxtex);
-			box.Quad.S = new Vector2(boxtex.TextureSizef.X * 4.4f, boxtex.TextureSizef.Y*2.7f);
-			box.Position = new Vector2(205,140);
-			scene.AddChild(box);
+			btn1 = new SpriteUV(boxtex);
+			btn1.Quad.S = new Vector2(boxtex.TextureSizef.X * 4.4f, boxtex.TextureSizef.Y*2.7f);
+			btn1.Position = new Vector2(205,140);
+			
+			btn2 = new SpriteUV(boxtex);
+			btn2.Quad.S = new Vector2(boxtex.TextureSizef.X * 4.4f, boxtex.TextureSizef.Y*2.7f);
+			btn2.Position = new Vector2(515,145);
+			scene.AddChild(btn1);
+			scene.AddChild(btn2);
 			
 			screenWidth = Director.Instance.GL.Context.GetViewport().Width;
 			screenHeight = Director.Instance.GL.Context.GetViewport().Height;
@@ -44,25 +49,27 @@ namespace Dodge
 			{
 				float x = (touches[0].X +0.5f) * screenWidth;
 				float y = screenHeight -((touches[0].Y +0.5f) * screenHeight);
-				if(pressBtn1(x, y))
+				if(pressBtn(btn1, x, y))
 					SceneManager.Instance.setInGameScene();
+				if(pressBtn(btn2, x, y))
+					SceneManager.Instance.setHighscoreScene();
 			}
 			Director.Instance.Update();
 			
 		}
-		public bool pressBtn1(float x, float y)
+		public bool pressBtn(SpriteUV btn, float x, float y)
 		{
 			
-			Bounds2 boxb = box.Quad.Bounds2();
+			Bounds2 boxb = btn.Quad.Bounds2();
 			float width = boxb.Point11.X;
 			float height = boxb.Point11.Y;
-			if((box.Position.X) > x)
+			if((btn.Position.X) > x)
 				return false;
-			else if(box.Position.X + width < x)
+			else if(btn.Position.X + width < x)
 				return false;
-			else if((box.Position.Y) > y)
+			else if((btn.Position.Y) > y)
 				return false;
-			else if(box.Position.Y + height < y)
+			else if(btn.Position.Y + height < y)
 				return false;
 			else 
 				return true;

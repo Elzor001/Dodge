@@ -1,15 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Dodge\StartScene.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Dodge\EndGameScene.cs">
     <Files>
-      <File FileName="Dodge\AppMain.cs" Line="34" Column="27" />
-      <File FileName="Dodge\SceneManager.cs" Line="32" Column="7" />
+      <File FileName="Dodge\AppMain.cs" Line="27" Column="4" />
+      <File FileName="Dodge\SceneManager.cs" Line="36" Column="4" />
       <File FileName="Dodge\Enemy.cs" Line="19" Column="25" />
-      <File FileName="Dodge\StartScene.cs" Line="32" Column="31" />
-      <File FileName="Dodge\InGameScene.cs" Line="21" Column="27" />
+      <File FileName="Dodge\StartScene.cs" Line="30" Column="54" />
+      <File FileName="Dodge\InGameScene.cs" Line="102" Column="38" />
       <File FileName="Dodge\Tank.cs" Line="123" Column="18" />
       <File FileName="Dodge\Player.cs" Line="102" Column="1" />
-      <File FileName="Dodge\ScoreManager.cs" Line="56" Column="1" />
+      <File FileName="Dodge\ScoreManager.cs" Line="36" Column="4" />
+      <File FileName="Dodge\HighscoreScene.cs" Line="75" Column="4" />
+      <File FileName="Dodge\EndGameScene.cs" Line="42" Column="7" />
+      <File FileName="Dodge\GameScene.cs" Line="26" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

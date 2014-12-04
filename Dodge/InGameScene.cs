@@ -53,7 +53,7 @@ namespace Dodge
 		}
 		private void InitializeUI()
 		{
-			UISystem.Initialize(Director.Instance.GL.Context);
+
 			uiScene = new Sce.PlayStation.HighLevel.UI.Scene();
 			Panel panel = new Panel();
 			panel.Width = Director.Instance.GL.Context.GetViewport().Width;
@@ -100,7 +100,6 @@ namespace Dodge
 			if(!alive)
 			{
 				ScoreManager.Instance.setScore();
-				ScoreManager.Instance.reset();
 				SceneManager.Instance.setEndScene();
 			}
 			

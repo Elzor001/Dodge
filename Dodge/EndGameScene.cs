@@ -13,6 +13,7 @@ namespace Dodge
 	public class EndGameScene : GameScene
 	{
 		private float timer;
+		private Label scoreTxt;
 		public EndGameScene ()
 		{
 			scene = new Sce.PlayStation.HighLevel.GameEngine2D.Scene();
@@ -23,24 +24,29 @@ namespace Dodge
 			background.Quad.S = textureInfo.TextureSizef;
 			scene.AddChild(background);
 			timer = 0.0f;
+			
+			scoreTxt = new Label();
+			scoreTxt.Text = "Score: " + ScoreManager.Instance.getScore();
+			scoreTxt.Scale = new Vector2(5.0f, 5.0f);
+			scoreTxt.Position = new Vector2(Director.Instance.GL.Context.GetViewport().Width/2 - 150, Director.Instance.GL.Context.GetViewport().Height*0.1f);
+			scoreTxt.Color = new Vector4(0.0f, 1.0f, 0.0f, 1.0f);
+			
+			scene.AddChild(scoreTxt);
+			
+			ScoreManager.Instance.reset();
 		}
 		public override void Update(float dT)
 		{
-			Touch.GetData(0).Clear();
+			var touches = Touch.GetData(0);
 			timer += dT;
-			if(timer >= 2.0f)
+			if(touches.Count > 0 && touches[0].Status == TouchStatus.Down || timer >= 5.0f)
 			{
 				SceneManager.Instance.setStartScene();
 			}
 			Director.Instance.Update();
 
 		}
-		public override void Draw(float dT)
-		{
-			Director.Instance.Render();
-			Director.Instance.GL.Context.SwapBuffers();
-			Director.Instance.PostSwap();
-		}
+
 	}
 }
 

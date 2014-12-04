@@ -8,14 +8,16 @@ namespace Dodge
 	{
 		private static ScoreManager instance = new ScoreManager();
 		private static Stopwatch stopwatch = new Stopwatch();
-		private static int score, lastTime;
+		private static int score;
+		private static float lastTime;
 		private static List<int> scores;
 		
 		private ScoreManager ()
 		{
 			score = 0;
-			lastTime = 0;
+			lastTime = 0.0f;
 			scores = new List<int>();
+
 		}
 		
 		public static ScoreManager Instance
@@ -32,16 +34,21 @@ namespace Dodge
 		}
 		public void runScore()
 		{
-			if((int)(stopwatch.ElapsedMilliseconds / 1000.0f) - lastTime >= 1)
+			if((stopwatch.ElapsedMilliseconds / 1000.0f) - lastTime >= 1.0f)
 			{
+			
 				score++;
-				lastTime = (int)(stopwatch.ElapsedMilliseconds / 1000.0f);
+				lastTime = (stopwatch.ElapsedMilliseconds / 1000.0f);
 			}
 	
 		}
 		public int getScore()
 		{
 			return score;
+		}
+		public List<int> getScores()
+		{
+			return scores;
 		}
 		public int getTime()
 		{

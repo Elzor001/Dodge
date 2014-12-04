@@ -23,7 +23,8 @@ namespace Dodge
 		public static void Main (string[] args)
 		{
 			Director.Initialize();
-
+			UISystem.Initialize(Director.Instance.GL.Context);
+			
 			stopwatch.Start();
 			float startSeconds = 0.0f;
 			float endSeconds = 0.016f;
