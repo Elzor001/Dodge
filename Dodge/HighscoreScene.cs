@@ -92,7 +92,7 @@ namespace Dodge
 			uiScore1.VerticalAlignment = VerticalAlignment.Top;
 			uiScore1.SetPosition(Director.Instance.GL.Context.GetViewport().Width/2 - uiScore1.Width/2, Director.Instance.GL.Context.GetViewport().Height*0.3f);		
 			uiScore1.TextColor = new UIColor(1.0f, 0.756f, 0.145f, 1.0f);
-			uiScore1.Font = new UIFont(FontAlias.System, 25, FontStyle.Bold);
+			uiScore1.Font = new UIFont(FontAlias.System, 30, FontStyle.Bold);
 			
 			uiScore2 = new Sce.PlayStation.HighLevel.UI.Label();
 			uiScore2.Text = "2nd Score: 0";;

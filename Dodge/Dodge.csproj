@@ -64,7 +64,6 @@
     <Folder Include="Assets\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\gameBackground.png" />
     <Content Include="Assets\Box.png" />
     <Content Include="Assets\tankTurret.png" />
     <Content Include="Assets\tankBase.png" />
@@ -75,7 +74,6 @@
     <Content Include="Assets\tankTurret3.png" />
     <Content Include="Assets\playBtn.png" />
     <Content Include="Assets\ScoreScrn.png" />
-    <Content Include="Assets\stone.png" />
     <Content Include="Assets\stone2.png" />
     <Content Include="Assets\Highscore.png" />
     <Content Include="Assets\MenuStart.png" />

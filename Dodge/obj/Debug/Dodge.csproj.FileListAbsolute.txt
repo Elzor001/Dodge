@@ -161,7 +161,6 @@ C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-unsigned\Application
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-unsigned\Application\System.ServiceModel.Web.dll
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-unsigned\Application\System.ServiceModel.dll
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-unsigned\Application\app.exe.mdb
-C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-unsigned\Application\Assets\gameBackground.png
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-unsigned\Application\Assets\Box.png
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-signed\Application\app.info
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-signed\Application\shaders\Simple.cgx
@@ -174,7 +173,6 @@ C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-signed\Application\S
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-signed\Application\System.ServiceModel.Web.dll
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-signed\Application\System.ServiceModel.dll
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-signed\Application\app.exe.mdb
-C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-signed\Application\Assets\gameBackground.png
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-signed\Application\Assets\Box.png
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge.psdp
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\obj\Debug\convertedpdb\app.exe.mdb
@@ -221,8 +219,6 @@ C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-unsigned\Application
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-signed\Application\Assets\MenuStart.png
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-signed\Application\Assets\playBtn.png
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-signed\Application\Assets\ScoreScrn.png
-C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-unsigned\Application\Assets\stone.png
-C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-signed\Application\Assets\stone.png
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-unsigned\Application\Assets\stone2.png
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-signed\Application\Assets\stone2.png
 C:\Users\Peter\Documents\GitHub\Dodge\Dodge\bin\Debug\Dodge-unsigned\Application\Assets\Highscore.png
