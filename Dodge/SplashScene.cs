@@ -14,8 +14,8 @@ namespace Dodge
 {
 	public class SplashScene : GameScene
 	{
-		private SpriteUV splat, title;
-		private TextureInfo splatTex, titleTex;
+		private SpriteUV splat, title, logo;
+		private TextureInfo splatTex, titleTex, logoTex;
 		private Vector2 splatScale, titleScale;
 		private float timer, speed;
 		
@@ -29,7 +29,7 @@ namespace Dodge
 			background.Quad.S = textureInfo.TextureSizef;
 			scene.AddChild(background);
 			splatScale = new Vector2(10.0f, 10.0f);
-			titleScale = new Vector2(10.0f, 10.0f);
+			titleScale = new Vector2(15.0f, 15.0f);
 			splatTex = new TextureInfo("/Application/Assets/splat.png");
 			titleTex = new TextureInfo("/Application/Assets/splattxt.png");
 			splat = new SpriteUV(splatTex);
@@ -37,10 +37,18 @@ namespace Dodge
 			splat.Position = new Vector2(Director.Instance.GL.Context.GetViewport().Width/3, Director.Instance.GL.Context.GetViewport().Height/7);
 			title = new SpriteUV(titleTex);
 			title.Quad.S = titleTex.TextureSizef;
-			title.Position = new Vector2(Director.Instance.GL.Context.GetViewport().Width/3.5f, Director.Instance.GL.Context.GetViewport().Height/2.8f);
+			title.Position = new Vector2(Director.Instance.GL.Context.GetViewport().Width/3.3f, Director.Instance.GL.Context.GetViewport().Height/2.8f);
+			
+			logoTex = new TextureInfo("/Application/Assets/logo.png");
+			logo = new SpriteUV(logoTex);
+			logo.Quad.S = logoTex.TextureSizef;
+			logo.Scale = new Vector2(0.5f, 0.5f);
+			logo.Position = new Vector2(Director.Instance.GL.Context.GetViewport().Width/2 - 375, Director.Instance.GL.Context.GetViewport().Height/2 - 230);
+			logo.Color = new Vector4(1.0f, 1.0f, 1.0f, 0.0f);
 			
 			scene.AddChild(splat);
 			scene.AddChild(title);
+			scene.AddChild(logo);
 			splat.Scale = splatScale;
 			title.Scale = titleScale;
 			splat.Color = new Vector4(0.0f, 0.0f, 0.0f, 0.0f);
@@ -56,13 +64,15 @@ namespace Dodge
 				splat.Color = new Vector4(0.0f, 0.0f, 0.0f, 1.0f);
 				ScaleSplat( dT);
 			}	
-			if(timer >2.5f)
+			if(timer >2.0f)
 			{	
 				ScaleTitle(dT);
-				if(timer > 3.0f)
+				if(timer > 2.5f)
 					title.Color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
 			}
 			
+			if(timer >=5.0)
+				logo.Color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
 			if(touches.Count > 0 && touches[0].Status == TouchStatus.Down || timer >= 8.0f)
 			{
 				SceneManager.Instance.setStartScene();
@@ -83,9 +93,9 @@ namespace Dodge
 		private void ScaleTitle(float dT)
 		{
 			if(titleScale.X >1.0f)
-				titleScale.X -=5.0f*dT;
+				titleScale.X -=7.0f*dT;
 			if(titleScale.Y > 1.0f)
-				titleScale.Y -=5.0f*dT;
+				titleScale.Y -=7.0f*dT;
 			
 			title.Scale = titleScale;
 		}

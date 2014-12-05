@@ -81,5 +81,7 @@
     <Content Include="Assets\splat.png" />
     <Content Include="Assets\splattxt.png" />
     <Content Include="Assets\endBackground.png" />
+    <Content Include="Assets\logo.png" />
+    <Content Include="Assets\logo2.png" />
   </ItemGroup>
 </Project>
