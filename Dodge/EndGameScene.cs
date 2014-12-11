@@ -4,6 +4,7 @@ using Sce.PlayStation.Core;
 using Sce.PlayStation.Core.Environment;
 using Sce.PlayStation.Core.Graphics;
 using Sce.PlayStation.Core.Input;
+using Sce.PlayStation.Core.Audio;
 
 using Sce.PlayStation.HighLevel.GameEngine2D;
 using Sce.PlayStation.HighLevel.GameEngine2D.Base;
@@ -12,6 +13,8 @@ namespace Dodge
 {
 	public class EndGameScene : GameScene
 	{
+		private BgmPlayer hahaSoundPlayer;
+    	private Bgm hahaSound;
 		private float timer;
 		private Label scoreTxt;
 		public EndGameScene ()
@@ -31,6 +34,14 @@ namespace Dodge
 			scoreTxt.Position = new Vector2(Director.Instance.GL.Context.GetViewport().Width/2 - 150, Director.Instance.GL.Context.GetViewport().Height*0.1f);
 			scoreTxt.Color = new Vector4(0.0f, 1.0f, 0.0f, 1.0f);
 			
+			Bgm hahaSound = new Bgm("/Application/Audio/Haha.mp3");
+			hahaSoundPlayer = hahaSound.CreatePlayer();
+			//Fix when it plays
+			hahaSoundPlayer.Play();
+			
+			
+			
+			
 			scene.AddChild(scoreTxt);
 			
 			ScoreManager.Instance.reset();
@@ -41,6 +52,7 @@ namespace Dodge
 			timer += dT;
 			if(touches.Count > 0 && touches[0].Status == TouchStatus.Down || timer >= 5.0f)
 			{
+				hahaSoundPlayer.Dispose();
 				SceneManager.Instance.setStartScene();
 			}
 			Director.Instance.Update();

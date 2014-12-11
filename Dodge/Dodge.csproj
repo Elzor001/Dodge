@@ -50,6 +50,7 @@
     <Compile Include="ScoreManager.cs" />
     <Compile Include="EndGameScene.cs" />
     <Compile Include="HighscoreScene.cs" />
+    <Compile Include="SplashScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
@@ -61,17 +62,33 @@
   <Import Project="$(MSBuildExtensionsPath)\Sce\Sce.Psm.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Assets\" />
+    <Folder Include="Audio\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\gameBackground.png" />
-    <Content Include="Assets\startBackground.png" />
     <Content Include="Assets\Box.png" />
-    <Content Include="Assets\endBackground.png" />
     <Content Include="Assets\tankTurret.png" />
     <Content Include="Assets\tankBase.png" />
     <Content Include="Assets\tankBase2.png" />
     <Content Include="Assets\tankTurret2.png" />
     <Content Include="Assets\Box2.png" />
-    <Content Include="Assets\Background.png" />
+    <Content Include="Assets\tankBase3.png" />
+    <Content Include="Assets\tankTurret3.png" />
+    <Content Include="Assets\playBtn.png" />
+    <Content Include="Assets\ScoreScrn.png" />
+    <Content Include="Assets\stone2.png" />
+    <Content Include="Assets\Highscore.png" />
+    <Content Include="Assets\MenuStart.png" />
+    <Content Include="Assets\Splashscreen1.png" />
+    <Content Include="Assets\splat.png" />
+    <Content Include="Assets\splattxt.png" />
+    <Content Include="Assets\endBackground.png" />
+    <Content Include="Assets\logo.png" />
+    <Content Include="Assets\logo2.png" />
+    <Content Include="Audio\Splat.mp3" />
+    <Content Include="Audio\Haha.mp3" />
+    <Content Include="Audio\Metal.mp3" />
+    <Content Include="Audio\BennyHill.mp3" />
+    <Content Include="Audio\test.mp3" />
+    <Content Include="Audio\BenHill.mp3" />
   </ItemGroup>
 </Project>

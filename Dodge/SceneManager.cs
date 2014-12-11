@@ -18,7 +18,7 @@ namespace Dodge
 		// Singleton initialization 
 		private SceneManager()
 		{
-			currentScene = new StartScene();
+			currentScene = new SplashScene();
 			Director.Instance.RunWithScene(currentScene.getScene(), true);
 		}
 		
@@ -37,7 +37,11 @@ namespace Dodge
 			currentScene = new StartScene();
 			Director.Instance.ReplaceScene(currentScene.getScene());
 		}
-		
+		public void setSplashScene()
+		{
+			currentScene = new SplashScene();
+			Director.Instance.ReplaceScene(currentScene.getScene());
+		}
 		public void setInGameScene()
 		{
 			currentScene = new InGameScene();
