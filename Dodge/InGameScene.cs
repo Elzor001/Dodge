@@ -11,6 +11,7 @@ using Sce.PlayStation.Core.Imaging;
 using Sce.PlayStation.HighLevel.GameEngine2D;
 using Sce.PlayStation.HighLevel.GameEngine2D.Base;
 using Sce.PlayStation.HighLevel.UI;
+using Sce.PlayStation.Core.Audio;
 
 namespace Dodge
 {
@@ -25,9 +26,12 @@ namespace Dodge
 		private Sce.PlayStation.HighLevel.UI.Label uiTime;
 		private bool alive;
 		private int numTanks;
+		private BgmPlayer bgSoundPlayer;
+    	private Bgm bgSound;
 			
 		public InGameScene ()
 		{
+			
 			InitializeUI();
 			
 			scene = new Sce.PlayStation.HighLevel.GameEngine2D.Scene();
@@ -50,6 +54,16 @@ namespace Dodge
 			
 			ScoreManager.Instance.startTime();
 			alive = true;
+			
+			bgSound = new Bgm("/Application/Audio/BenHill.mp3");
+			bgSoundPlayer = bgSound.CreatePlayer();
+			//Fix when it plays
+			
+			//bgSoundPlayer.Dispose();
+			
+			
+			
+			
 		}
 		private void InitializeUI()
 		{
@@ -94,13 +108,27 @@ namespace Dodge
 				   alive = false;
 
 			}
+			
 			player.Update();
 			if(player.isTouching())
+			{
 				ScoreManager.Instance.runScore();
+				if(bgSoundPlayer.Status == BgmStatus.Paused)
+					bgSoundPlayer.Resume();
+				else if(bgSoundPlayer.Status != BgmStatus.Playing)
+					bgSoundPlayer.Play();
+				
+			}
+			else 
+			{
+				
+				bgSoundPlayer.Pause();
+			}
 			
 			
 			if(!alive)
 			{
+				bgSoundPlayer.Dispose();
 				ScoreManager.Instance.setScore();
 				SceneManager.Instance.setEndScene();
 			}

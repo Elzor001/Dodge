@@ -62,6 +62,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Sce\Sce.Psm.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Assets\" />
+    <Folder Include="Audio\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Box.png" />
@@ -83,5 +84,11 @@
     <Content Include="Assets\endBackground.png" />
     <Content Include="Assets\logo.png" />
     <Content Include="Assets\logo2.png" />
+    <Content Include="Audio\Splat.mp3" />
+    <Content Include="Audio\Haha.mp3" />
+    <Content Include="Audio\Metal.mp3" />
+    <Content Include="Audio\BennyHill.mp3" />
+    <Content Include="Audio\test.mp3" />
+    <Content Include="Audio\BenHill.mp3" />
   </ItemGroup>
 </Project>

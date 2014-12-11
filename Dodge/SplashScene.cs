@@ -5,6 +5,7 @@ using Sce.PlayStation.Core.Environment;
 using Sce.PlayStation.Core.Graphics;
 using Sce.PlayStation.Core.Input;
 using Sce.PlayStation.Core.Imaging;
+using Sce.PlayStation.Core.Audio;
 
 using Sce.PlayStation.HighLevel.GameEngine2D;
 using Sce.PlayStation.HighLevel.GameEngine2D.Base;
@@ -18,6 +19,9 @@ namespace Dodge
 		private TextureInfo splatTex, titleTex, logoTex;
 		private Vector2 splatScale, titleScale;
 		private float timer, speed;
+		private BgmPlayer SoundPlayer;
+    	private Bgm splatSound, metalSound;
+		private bool playing, metalPlaying;
 		
 		public SplashScene ()
 		{
@@ -54,6 +58,15 @@ namespace Dodge
 			splat.Color = new Vector4(0.0f, 0.0f, 0.0f, 0.0f);
 			title.Color = new Vector4(1.0f, 1.0f, 1.0f, 0.0f);
 			speed = 1.0f;
+			
+			playing = false;
+			splatSound = new Bgm("/Application/Audio/Splat.mp3");
+			SoundPlayer = splatSound.CreatePlayer();
+			
+			metalPlaying = false;
+			metalSound = new Bgm("/Application/Audio/Metal.mp3");
+
+			
 		}
 		public override void Update(float dT)
 		{
@@ -69,12 +82,14 @@ namespace Dodge
 				ScaleTitle(dT);
 				if(timer > 2.5f)
 					title.Color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+				
 			}
 			
 			if(timer >=5.0)
 				logo.Color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
 			if(touches.Count > 0 && touches[0].Status == TouchStatus.Down || timer >= 8.0f)
 			{
+				SoundPlayer.Dispose();
 				SceneManager.Instance.setStartScene();
 			}
 			Director.Instance.Update();
@@ -87,6 +102,22 @@ namespace Dodge
 				splatScale.X -=speed*dT;
 			if(splatScale.Y > 1.0f)
 				splatScale.Y -=speed*dT;
+		
+			if(splatScale.X <= 1.8f && !playing)
+			{
+				SoundPlayer.Play();			
+				playing = true;
+			}
+			if(SoundPlayer.Status != BgmStatus.Playing && playing)
+			{
+				SoundPlayer.Stop ();
+				SoundPlayer.Dispose();
+				SoundPlayer = metalSound.CreatePlayer();
+				
+			}
+			
+			
+			
 			
 			splat.Scale = splatScale;
 		}
@@ -96,6 +127,14 @@ namespace Dodge
 				titleScale.X -=7.0f*dT;
 			if(titleScale.Y > 1.0f)
 				titleScale.Y -=7.0f*dT;
+			
+			if(titleScale.X <= 1.8f && !metalPlaying)
+			{
+				SoundPlayer.Play();			
+				metalPlaying = true;
+			}
+			
+			
 			
 			title.Scale = titleScale;
 		}

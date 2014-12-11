@@ -28,7 +28,7 @@ namespace Dodge
 			scene.AddChild(background);
 			
 			boxtex1 = new TextureInfo("/Application/Assets/playBtn.png");
-			boxtex2 = new TextureInfo("/Application/Assets/Scorescrn.png");
+			boxtex2 = new TextureInfo("/Application/Assets/ScoreScrn.png");
 			
 			btn1 = new SpriteUV(boxtex1);
 			btn1.Quad.S = new Vector2(boxtex1.TextureSizef.X, boxtex1.TextureSizef.Y);
